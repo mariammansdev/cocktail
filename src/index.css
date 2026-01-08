@@ -58,6 +58,10 @@ body {
     mask-position: center;
     mask-size: 50%;
 }
+@utility sg-stable {
+  scrollbar-gutter: stable both-edges;
+}
+
 
 @layer components {
     main {
