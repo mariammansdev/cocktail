@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import leftLeafImg from '../../public/images/hero-left-leaf.png'
 import rightLeafImg from '../../public/images/hero-right-leaf.png'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import {SplitText} from 'gsap/all'
+import { useMediaQuery } from 'react-responsive'
 
 const Hero = () => {
+    const videoRef = useRef();
+
+    const isMobile = useMediaQuery({maxWidth: 767})
     useGSAP(()=>{
         const heroSplit = new SplitText('.title', { type: 'chars, words' });
         const paragraphSplit = new SplitText('.subtitle', { type: 'lines' });
@@ -69,6 +73,15 @@ const Hero = () => {
             </div>
         </div>
     </section>
+    <div className="video absolute inset-0">
+        <video
+        ref={videoRef}
+            src="/videos/input.mp4"
+            muted
+            playsInline
+            preload='auto'
+        />
+    </div>
     </>
   )
 }
